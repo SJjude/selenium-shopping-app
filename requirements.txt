@@ -2,3 +2,4 @@ fastapi
 selenium
 pydantic
 uvicorn
+webdriver_manager
