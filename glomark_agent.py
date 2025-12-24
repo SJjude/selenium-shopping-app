@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 
-class CargillsProductScraper:
+class GlomarkProductScraper:
     def __init__(self):
         """Initialize the scraper with browser options."""
         self.base_url = "https://glomark.lk/search?search-text="
@@ -115,7 +115,7 @@ class CargillsProductScraper:
         self.driver.quit()
 
 def main():
-    scraper = CargillsProductScraper()
+    scraper = GlomarkProductScraper()
     
     try:
         # Search for products
