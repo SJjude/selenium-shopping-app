@@ -5,7 +5,7 @@ from glomark_agent import GlomarkProductScraper
 from spar_agent import SparProductScraper
 from cargills_agent import CargillsProductScraper
 #from keells_agent import KeellsProductScraper
-import uvicorn
+# import uvicorn
 
 app = FastAPI(title="Supermarket Product Search API")
 
@@ -120,10 +120,10 @@ def search_multiple_products(payload: SearchRequest):
     return response
 
 # ---------- Run Server ----------
-if __name__ == "__main__":
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True
-    )
+# if __name__ == "__main__":
+#     uvicorn.run(
+#         "main:app",
+#         host="0.0.0.0",
+#         port=8000,
+#         reload=True
+#     )
