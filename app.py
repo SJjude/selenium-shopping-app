@@ -4,7 +4,7 @@ from typing import List, Literal
 from glomark_agent import GlomarkProductScraper
 from spar_agent import SparProductScraper
 from cargills_agent import CargillsProductScraper
-from keells_agent import KeellsProductScraper
+#from keells_agent import KeellsProductScraper
 import uvicorn
 
 app = FastAPI(title="Supermarket Product Search API")
@@ -52,15 +52,15 @@ def search_single_product(
         finally:
             cargills.close()
 
-    if market in ("keells", "all"):
-        keells = KeellsProductScraper()
-        try:
-            results.append({
-                "market": "keells",
-                "products": keells.scrape_product_by_search(product)
-            })
-        finally:
-            keells.close()
+    # if market in ("keells", "all"):
+    #     keells = KeellsProductScraper()
+    #     try:
+    #         results.append({
+    #             "market": "keells",
+    #             "products": keells.scrape_product_by_search(product)
+    #         })
+    #     finally:
+    #         keells.close()
 
     return {
         "query": product,
@@ -105,15 +105,15 @@ def search_multiple_products(payload: SearchRequest):
             finally:
                 cargills.close()
 
-        if "keells" in payload.markets:
-            keells = KeellsProductScraper()
-            try:
-                item_result["markets"].append({
-                    "market": "keells",
-                    "products": keells.scrape_product_by_search(product)
-                })
-            finally:
-                keells.close()
+        # if "keells" in payload.markets:
+        #     keells = KeellsProductScraper()
+        #     try:
+        #         item_result["markets"].append({
+        #             "market": "keells",
+        #             "products": keells.scrape_product_by_search(product)
+        #         })
+        #     finally:
+        #         keells.close()
 
         response.append(item_result)
 
